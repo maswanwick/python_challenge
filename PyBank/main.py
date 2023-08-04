@@ -47,7 +47,7 @@ with open(budget_data_path, encoding="UTF-8") as budget_data_csv:
         current_profit_or_loss = int(budget_data_record[header.index("Profit/Losses")])
 
         # increment the total profit of loss total
-        total_profit_or_loss += int(current_profit_or_loss)
+        total_profit_or_loss += current_profit_or_loss
 
         # if this isn't the first month, subtract the current profit/loss from the last profit/loss
         # to get the monthly change.  store that in profit changes list.
