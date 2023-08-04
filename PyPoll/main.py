@@ -24,4 +24,6 @@ with open(election_data_path, encoding="UTF-8") as election_data_csv:
 
 print(total_vote_count)
 for candidate in candidate_data:
-    print(candidate)
+    candidate_vote_count = candidate_data[candidate]
+    candidate_percentage = round((candidate_vote_count / total_vote_count) * 100, 3)
+    print(candidate, candidate_percentage, candidate_vote_count)
