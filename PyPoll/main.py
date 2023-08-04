@@ -5,7 +5,9 @@ election_data_path = "PyPoll\\Resources\\election_data.csv"
 
 # initializers
 total_vote_count = 0
+winning_vote_total = 0
 candidate_data = {}
+winning_candidate = ""
 
 # open the file
 with open(election_data_path, encoding="UTF-8") as election_data_csv:
@@ -27,3 +29,7 @@ for candidate in candidate_data:
     candidate_vote_count = candidate_data[candidate]
     candidate_percentage = round((candidate_vote_count / total_vote_count) * 100, 3)
     print(candidate, candidate_percentage, candidate_vote_count)
+    if (candidate_vote_count > winning_vote_total):
+        winning_vote_total = candidate_vote_count
+        winning_candidate = candidate
+print(winning_candidate)
