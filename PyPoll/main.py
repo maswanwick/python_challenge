@@ -5,6 +5,7 @@ election_data_path = "PyPoll\\Resources\\election_data.csv"
 
 # initializers
 total_vote_count = 0
+candidate_data = {}
 
 # open the file
 with open(election_data_path, encoding="UTF-8") as election_data_csv:
@@ -15,4 +16,12 @@ with open(election_data_path, encoding="UTF-8") as election_data_csv:
     for election_data_record in election_data_reader:
         total_vote_count += 1
 
+        candidate_name = election_data_record[headers.index("Candidate")]
+        if candidate_name in candidate_data.keys():
+            candidate_data[candidate_name] = int(candidate_data[candidate_name]) + 1
+        else:
+            candidate_data[candidate_name] = 1
+
 print(total_vote_count)
+for candidate in candidate_data:
+    print(candidate)
